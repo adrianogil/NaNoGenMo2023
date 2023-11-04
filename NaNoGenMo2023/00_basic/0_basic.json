@@ -1,0 +1,12 @@
+{
+    "on_game_started": [
+        ["create_dragon"],
+        ["describe_world"],
+        ["dragon/#dragon/mood#_action"],
+        ["exit"]
+    ],
+    "describe_world": [
+        ["print", "Once upon a time, in a far way reign there was a castle and a ", ["get_concept", "dragon/mood"], " dragon."],
+        ["describe_castle"]
+    ]
+}
