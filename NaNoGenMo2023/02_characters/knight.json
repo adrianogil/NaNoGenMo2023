@@ -1,0 +1,47 @@
+{
+    "knight": {
+        "introduce_to_narrative": [
+            ["print",
+                ["get_concept", "#SELF#/name"], 
+                ", ", 
+                {
+                    "text": [
+                        "a strong soldier",
+                        "a might knight",
+                        "an unyielding warrior",
+                        "a valiant defender",
+                        "a stalwart champion",
+                        "a formidable guardian",
+                        "a resolute fighter",
+                        "a fierce protector",
+                        "a robust combatant",
+                        "a gallant cavalier",
+                        "a dauntless sentinel",
+                        "a powerful vanguard"
+                    ]
+                },
+                ", awaits for adventure."
+            ],
+            ["#SELF#/knight_actions"]
+        ],
+        "attributes": [
+            ["set_concept", "#SELF#/strength", "high"],
+            ["set_concept", "#SELF#/armor", "heavy"],
+            ["set_concept", "#SELF#/weapon", "sword"],
+            ["set_concept", "#SELF#/morale", "steadfast"]
+        ],
+        "knight_actions": [
+            ["print", ["get_concept", "#SELF#/name"], " raises the banner of the realm."],
+            ["print", ["get_concept", "#SELF#/name"], " embarks on a quest."],
+            ["print", ["get_concept", "#SELF#/name"], " challenges a rival."],
+            ["print", ["get_concept", "#SELF#/name"], " defends the honor of the crown."]
+        ]
+    },
+    "create_knight": [
+        ["instantiate", "knight", "game/characters"],
+        ["set_concept", "#LAST_INSTANTIATE_ENTITY#/name",
+            ["generate_character_name"]
+        ],
+        ["#LAST_INSTANTIATE_ENTITY#/attributes"]
+    ]
+}
