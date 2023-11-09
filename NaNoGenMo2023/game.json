@@ -1,0 +1,12 @@
+{
+    "on_game_started": [
+        ["create_dragon"],
+        ["create_knight"],
+        ["create_knight"],
+        ["create_castle"],
+        ["describe_world"],
+        ["dragon/#dragon/mood#_action"],
+        ["update_character_actions"],
+        ["exit"]
+    ]
+}
