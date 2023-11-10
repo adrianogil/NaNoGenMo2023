@@ -1,11 +1,11 @@
 {
     "castle": {
         "location": "On the top of the montain",
-        "describe": [
+        "introduce_to_narrative": [
             ["print", ["get_concept", "#SELF#/location"], " there is a magic castle."]
         ]
     },
     "create_castle": [
-        ["instantiate", "castle", "kingdom/places"]
+        ["instantiate", "castle", "#arg1#/places"]
     ]
 }

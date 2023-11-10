@@ -1,0 +1,19 @@
+{
+    "kingdom": {
+        "introduce_to_narrative": [
+            ["print", "There is a kingdom called ", ["get_concept", "#SELF#/name"], "."],
+            ["for_each_concept", "#SELF#/places",
+                [
+                    ["#arg1#/introduce_to_narrative"]
+                ]
+            ]
+        ]
+    },
+    "create_kingdom": [
+        ["instantiate", "kingdom", "world/kingdoms"],
+        ["set_concept", "#LAST_INSTANTIATE_ENTITY#/name",
+            ["generate_kingdom_name"]
+        ],
+        ["create_castle", "#LAST_INSTANTIATE_ENTITY#"]
+    ]
+}

@@ -1,16 +1,8 @@
 {
-    "describe_world": [
-        ["print", "Once upon a time, in a far way reign there was a castle and a ", ["get_concept", "dragon/mood"], " dragon."],
-        ["for_each_concept", "kingdom/places",
-            [
-                ["kingdom/places/#arg1#/describe"]
-            ]
-        ]
-    ],
     "update_character_actions": [
         ["for_each_concept", "game/characters",
             [
-                ["game/characters/#arg1#/introduce_to_narrative"]
+                ["#arg1#/introduce_to_narrative"]
             ]
         ]
     ]

@@ -1,0 +1,14 @@
+{
+    "world": {
+        "name": "Dream",
+        "introduce_to_narrative": [
+            ["print", 
+                "Once upon a time, in a magic world named ", ["get_concept", "world/name"]],
+            ["for_each_concept", "#SELF#/kingdoms",
+                [
+                    ["#arg1#/introduce_to_narrative"]
+                ]
+            ]
+        ]
+    }
+}
