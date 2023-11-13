@@ -1,0 +1,26 @@
+{
+    "castle": {
+        "location": "On the top of the montain",
+        "introduce_to_narrative": [
+            ["print", 
+                ["get_concept", "#SELF#/location"], 
+                { 
+                    "text": [
+                        " there is a magic castle #known_part# ",
+                        " lies a castle lies a castle #known_part# "
+                    ],
+                    "known_part": [
+                        "know as",
+                        "known to many as"
+                    ]
+                } , 
+                ["get_concept", "#SELF#/name"], "."]
+        ]
+    },
+    "create_castle": [
+        ["instantiate", "castle", "#arg1#/places"],
+        ["set_concept", "#LAST_INSTANTIATE_ENTITY#/name",
+            ["generate_castle_name"]
+        ]
+    ]
+}
