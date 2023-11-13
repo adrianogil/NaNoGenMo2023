@@ -1,6 +1,5 @@
 {
     "world": {
-        "name": "Dream",
         "introduce_to_narrative": [
             ["print", 
                 "Once upon a time, in a magic world named ", ["get_concept", "world/name"]],
@@ -10,5 +9,19 @@
                 ]
             ]
         ]
-    }
+    },
+    "create_world": [
+        [
+            "set_concept", "world/name", 
+            ["grammar", 
+                {
+                    "text": [
+                        "Dream",
+                        "Midgard",
+                        "Hope"
+                    ]
+                }
+            ]
+        ]
+    ]
 }
