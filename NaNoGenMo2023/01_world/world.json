@@ -2,7 +2,20 @@
     "world": {
         "introduce_to_narrative": [
             ["print", 
-                "Once upon a time, in a magic world named ", ["get_concept", "world/name"]],
+                ["grammar",{
+                    "text": ["#intro#, #first_population_arrive#"],
+                    "intro": [
+                        "Once upon a time, in a magic world named #world/name#",
+                        "In a time past, within the mystical world called #world/name#",
+                        "Long ago, in the enchanted world of #world/name#",
+                        "In a distant era, in the bewitched world known as #world/name#"
+                    ],
+                    "first_population_arrive": [
+                        "an ominous song was heard while the first population arrived amidst #world/setting#."
+                    ]
+                }]
+            ],
+            ["print", "Now, out story starts in the year #world/age#."],
             ["for_each_concept", "#SELF#/kingdoms",
                 [
                     ["#arg1#/introduce_to_narrative"]
@@ -22,6 +35,48 @@
                     ]
                 }
             ]
-        ]
+        ],
+        [
+            "set_concept", "world/setting",
+            ["grammar", {
+                "text": ["#setting_possibilities#"],
+                "setting_possibilities": [
+                    "lush forests and crystal-clear rivers",
+                    "towering mountains and verdant valleys",
+                    "arid deserts and sprawling oases",
+                    "mysterious fog-covered moorlands",
+                    "endless fields of colorful wildflowers",
+                    "dense jungles with canopies hiding the sky",
+                    "snow-covered plains sparkling under the sun",
+                    "a coastline with turbulent seas and serene beaches"
+                ]
+            }]
+        ],
+        [
+            "set_concept", "world/weather",
+            ["grammar", {
+                "text": ["#weather_patterns_possibilities#"],
+                "weather_patterns_possibilities": [
+                    "ever-changing skies, from sunny to stormy in moments",
+                    "perpetual mist that shrouds the lands in mystery",
+                    "seasons that shift rapidly, each with its distinct beauty",
+                    "night skies filled with auroras and starry spectacles"
+                ]
+            }]
+        ],
+        [
+            "set_concept", "world/resources",
+            ["grammar", {
+                "text": ["natural_resources_possibilities#"],
+                "natural_resources_possibilities": [
+                    "abundant minerals hidden in the mountains",
+                    "rich soils perfect for bountiful harvests",
+                    "rare herbs with magical properties in the forests",
+                    "numerous rivers teeming with fish",
+                    "precious gemstones buried deep underground"
+                ]
+            }]
+        ],
+        ["set_concept", "world/age", ["random_choice", 20, 300] ]
     ]
 }
