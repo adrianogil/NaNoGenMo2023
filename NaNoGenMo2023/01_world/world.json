@@ -15,7 +15,7 @@
                     ]
                 }]
             ],
-            ["print", "Now, out story starts in the year #world/age#."],
+            ["print", "Now, out story starts in the year #world/age#. The initial population now finds themselves organized in kingdoms."],
             ["for_each_concept", "#SELF#/kingdoms",
                 [
                     ["#arg1#/introduce_to_narrative"]

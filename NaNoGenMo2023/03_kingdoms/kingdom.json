@@ -1,19 +1,71 @@
 {
     "kingdom": {
         "introduce_to_narrative": [
-            ["print", "There is a kingdom called ", ["get_concept", "#SELF#/name"], "."],
-            ["for_each_concept", "#SELF#/places",
+            ["print", "There is a kingdom called ", ["get_concept", "#SELF#/name"], 
+             " with a population of ", ["get_concept", "#SELF#/population"],
+             ". The kingdom is governed by ", ["get_concept", "#SELF#/government_type"], 
+             " and is known for its ", ["get_concept", "#SELF#/climate"], " climate."],
+            ["for_each_concept", "#SELF#/regions",
                 [
                     ["#arg1#/introduce_to_narrative"]
                 ]
             ]
+        ],
+        "generate_population": [
+            [
+                "set_concept", "#SELF#/population", 
+                ["random_choice", ["calc", "floor(#world/age#*4)"], 
+                                  ["calc", "floor(#world/age#*100)"]]
+            ]
+        ],
+        "generate_government_type": [
+            [
+                "set_concept", "#SELF#/government_type", 
+                ["grammar", {"text": [
+                    "a Monarchy",
+                    "a Democracy",
+                    "an Oligarchy",
+                    "a Theocracy",
+                    "a Republic",
+                    "an Anarchy",
+                    "a Technocracy",
+                    "a Feudalism",
+                    "a Dictatorship",
+                    "a Tribal"
+                ]}]
+            ]
+        ],
+        "generate_climate": [
+            [
+                "set_concept", "#SELF#/climate", 
+                    ["grammar", {"text": [
+                    "tropical",
+                    "subtropical",
+                    "temperate",
+                    "continental",
+                    "polar"
+                ]}]
+            ]            
         ]
     },
     "create_kingdom": [
         ["instantiate", "kingdom", "world/kingdoms"],
-        ["set_concept", "#LAST_INSTANTIATE_ENTITY#/name",
-            ["generate_kingdom_name"]
+        ["set_concept", "#LAST_INSTANTIATE_ENTITY#/name", ["generate_kingdom_name"]],
+        ["#LAST_INSTANTIATE_ENTITY#/generate_population"],
+        ["#LAST_INSTANTIATE_ENTITY#/generate_government_type"],
+        ["#LAST_INSTANTIATE_ENTITY#/generate_climate"]
+    ],
+    "region": {
+        "introduce_to_narrative": [
+            ["print", "One of the regions, ", ["get_concept", "#SELF#/name"], 
+             ", is known for its ", ["get_concept", "#SELF#/characteristic"], "."]
         ],
-        ["create_castle", "#LAST_INSTANTIATE_ENTITY#"]
+        "attributes": [
+            "name",
+            "characteristic"
+        ]
+    },
+    "create_regions": [
+        
     ]
 }
