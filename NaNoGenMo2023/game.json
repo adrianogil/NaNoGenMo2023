@@ -1,7 +1,6 @@
 {
     "on_game_started": [
         ["create_world"],
-        ["create_kingdom"],
         ["create_dragon"],
         ["create_knight"],
         ["create_knight"],

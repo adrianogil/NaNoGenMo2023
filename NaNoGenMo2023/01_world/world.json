@@ -1,7 +1,7 @@
 {
     "world": {
         "introduce_to_narrative": [
-            ["print", 
+            ["print",
                 ["grammar",{
                     "text": ["#intro#, #first_population_arrive#"],
                     "intro": [
@@ -11,11 +11,12 @@
                         "In a distant era, in the bewitched world known as #world/name#"
                     ],
                     "first_population_arrive": [
-                        "an ominous song was heard while the first population arrived amidst #world/setting#."
+                        "an ominous song was heard while the first population arrived amidst #world/setting#.",
+                        "an eerie song was heard when the first community settled amidst #world/setting#."
                     ]
                 }]
             ],
-            ["print", "Now, out story starts in the year #world/age#. The initial population now finds themselves organized in kingdoms."],
+            ["print", "Now, our story starts in the year #world/age#. The initial population now finds themselves organized in kingdoms."],
             ["for_each_concept", "#SELF#/kingdoms",
                 [
                     ["#arg1#/introduce_to_narrative"]
@@ -25,8 +26,8 @@
     },
     "create_world": [
         [
-            "set_concept", "world/name", 
-            ["grammar", 
+            "set_concept", "world/name",
+            ["grammar",
                 {
                     "text": [
                         "Dream",
@@ -77,6 +78,12 @@
                 ]
             }]
         ],
-        ["set_concept", "world/age", ["random_choice", 20, 300] ]
+        ["set_concept", "world/age", ["random_choice", 20, 300] ],
+        ["set_concept", "world/total_kingdoms", ["random_choice", 2, 10] ],
+        ["iterate", "#world/total_kingdoms#",
+            [
+                ["create_kingdom"]
+            ]
+        ]
     ]
 }
