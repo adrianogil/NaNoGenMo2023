@@ -1,9 +1,9 @@
 {
     "kingdom": {
         "introduce_to_narrative": [
-            ["print", "There is a kingdom called ", ["get_concept", "#SELF#/name"], 
+            ["print", "There is a kingdom called ", ["get_concept", "#SELF#/name"],
              " with a population of ", ["get_concept", "#SELF#/population"],
-             ". The kingdom is governed by ", ["get_concept", "#SELF#/government_type"], 
+             ". The kingdom is governed by ", ["get_concept", "#SELF#/government_type"],
              " and is known for its ", ["get_concept", "#SELF#/climate"], " climate."],
             ["for_each_concept", "#SELF#/regions",
                 [
@@ -13,14 +13,14 @@
         ],
         "generate_population": [
             [
-                "set_concept", "#SELF#/population", 
-                ["random_choice", ["calc", "floor(#world/age#*4)"], 
+                "set_concept", "#SELF#/population",
+                ["random_choice", ["calc", "floor(#world/age#*4)"],
                                   ["calc", "floor(#world/age#*100)"]]
             ]
         ],
         "generate_government_type": [
             [
-                "set_concept", "#SELF#/government_type", 
+                "set_concept", "#SELF#/government_type",
                 ["grammar", {"text": [
                     "a Monarchy",
                     "a Democracy",
@@ -37,7 +37,7 @@
         ],
         "generate_climate": [
             [
-                "set_concept", "#SELF#/climate", 
+                "set_concept", "#SELF#/climate",
                     ["grammar", {"text": [
                     "tropical",
                     "subtropical",
@@ -45,7 +45,49 @@
                     "continental",
                     "polar"
                 ]}]
-            ]            
+            ]
+        ],
+        "generate_history": [
+            [
+                "set_concept", "#SELF#/founding_myth",
+                ["random_choice",
+                    "Founded by a divine hero",
+                    "Created after a great migration",
+                    "Established following a major victory in battle",
+                    "Born from the unification of tribes",
+                    "Formed after a legendary pact with mythical creatures"
+                ]
+            ],
+            [
+                "set_concept", "#SELF#/major_conflict",
+                ["random_choice",
+                    "A great war against invaders",
+                    "Internal strife and civil war",
+                    "Conflict with neighboring kingdoms",
+                    "Rebellion against tyrannical rulers",
+                    "Struggle against natural disasters"
+                ]
+            ],
+            [
+                "set_concept", "#SELF#/cultural_evolution",
+                ["random_choice",
+                    "The Renaissance of arts and sciences",
+                    "The age of exploration and discovery",
+                    "The reform of laws and justice",
+                    "The revolution in trade and economy",
+                    "The enlightenment of spiritual and philosophical thought"
+                ]
+            ],
+            [
+                "set_concept", "#SELF#/key_figure",
+                ["random_choice",
+                    "A legendary king or queen",
+                    "A revered prophet or sage",
+                    "A revolutionary leader",
+                    "A genius inventor or scholar",
+                    "A mythical hero or demigod"
+                ]
+            ]
         ]
     },
     "create_kingdom": [
@@ -53,11 +95,12 @@
         ["set_concept", "#LAST_INSTANTIATE_ENTITY#/name", ["generate_kingdom_name"]],
         ["#LAST_INSTANTIATE_ENTITY#/generate_population"],
         ["#LAST_INSTANTIATE_ENTITY#/generate_government_type"],
-        ["#LAST_INSTANTIATE_ENTITY#/generate_climate"]
+        ["#LAST_INSTANTIATE_ENTITY#/generate_climate"],
+        ["#LAST_INSTANTIATE_ENTITY#/generate_history"]
     ],
     "region": {
         "introduce_to_narrative": [
-            ["print", "One of the regions, ", ["get_concept", "#SELF#/name"], 
+            ["print", "One of the regions, ", ["get_concept", "#SELF#/name"],
              ", is known for its ", ["get_concept", "#SELF#/characteristic"], "."]
         ],
         "attributes": [
@@ -66,6 +109,6 @@
         ]
     },
     "create_regions": [
-        
+
     ]
 }
